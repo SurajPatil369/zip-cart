@@ -171,7 +171,7 @@ exports.postSignup = (req, res, next) => {
       res.redirect("/login");
       //   return mailer.sendMail({
       //     to: email,
-      //     from: "sp680199@gmail.com",
+      //     from: "EMAIL_SENDER_ADDRESS",
       //     subject: "Signup succeeded",
       //     html: "<b>You successfully signed up! </b>",
       //   });
@@ -225,7 +225,7 @@ exports.postReset = (req, res, next) => {
         res.redirect("/login");
         return mailer.sendMail({
           to: email,
-          from: "sp680199@gmail.com",
+          from: process.env.EMAIL_SENDER_ADDRESS,
           subject: "Reset Password",
           html: `<p>you have requested for reset password click on the link to <a href='http://localhost:3001/reset/${token}'>reset the password </a></p>`,
         });
